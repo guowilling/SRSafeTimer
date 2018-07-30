@@ -18,7 +18,7 @@
 @implementation SRSafeTimerViewController
 
 - (void)dealloc {
-    [self.safeTimer invalidate]; // work
+    [self.safeTimer invalidate]; // it is also ok to invalidate timer here
 }
 
 - (void)viewDidLoad {
@@ -30,12 +30,6 @@
         NSLog(@"SRSafeTimer");
     }];
     [self.safeTimer fire];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    
-//    [self.safeTimer invalidate]; // work
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

@@ -10,7 +10,9 @@
 
 @interface NSTimerViewController ()
 
-@property (nonatomic, strong) NSTimer *nsTimer; // weak has the same problem
+@property (nonatomic, strong) NSTimer *nsTimer;
+
+//@property (nonatomic, weak) NSTimer *nsTimer; // weak has the same problem
 
 @end
 
@@ -30,7 +32,7 @@
     
 //    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
 //    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-//    self.nsTimer = timer;
+//    self.nsTimer = timer; // weak has the same problem
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
