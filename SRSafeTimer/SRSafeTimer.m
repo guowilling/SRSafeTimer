@@ -10,7 +10,7 @@
 
 @interface SRSafeTimer ()
 
-@property (nonatomic,strong) dispatch_source_t timer;
+@property (nonatomic, strong) dispatch_source_t timer;
 
 @end
 
@@ -24,7 +24,10 @@
                                       repeat:(BOOL)isRepeat
                                      handler:(repeatHandlerBlock)handler
 {
-    return [self sr_safeTimerWithTimeInterval:timeInterval repeat:isRepeat queue:dispatch_get_main_queue() handler:handler];
+    return [self sr_safeTimerWithTimeInterval:timeInterval
+                                       repeat:isRepeat
+                                        queue:dispatch_get_main_queue()
+                                      handler:handler];
 }
 
 + (instancetype)sr_safeTimerWithTimeInterval:(NSTimeInterval)timeInterval
@@ -37,7 +40,8 @@
     safeTimer.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
     dispatch_source_set_timer(safeTimer.timer,
                               dispatch_time(DISPATCH_TIME_NOW, timeInterval * NSEC_PER_SEC),
-                              timeInterval * NSEC_PER_SEC, 0);
+                              timeInterval * NSEC_PER_SEC,
+                              0);
     dispatch_source_set_event_handler(safeTimer.timer, ^{
         if (handler) {
             handler();
