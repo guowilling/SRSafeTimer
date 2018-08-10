@@ -2,7 +2,7 @@
 //  NSTimerViewController.m
 //  SRSafeTimerDemo
 //
-//  Created by 郭伟林 on 2018/2/27.
+//  Created by https://github.com/guowilling on 2018/2/27.
 //  Copyright © 2018年 SR. All rights reserved.
 //
 
